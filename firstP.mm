@@ -14,3 +14,31 @@ for(NSRunningApplication *app in mail)
     });
     return result;
 }
+
+/*
+    above codes try to detect app with BundleIndentifier yourBundleIdentifier exits or not.
+    when result equals 2, it means this app exited.   
+*/
+
+NSTask *task = [[NSTask alloc] init];
+[task setLaunchPath:@"/bin/rm"];
+[task setArguments:@[@"-rf",fileName]];
+[task launch];
+[task waitUntilExit];
+[task realease];
+
+/*
+    NSTask can start another task to achieve something.
+*/
+
+NSTask *task = [[NSTask alloc] init];
+[task setLaunchPath:@"/bin/sh"];
+[task setArguments:[NSArray arrayWithObjects:[[NSBundle mainBundle] pathForResource:filename ofType:@"sh"],nil];
+[task launch];
+[task waitUntilExit];
+[task realease];
+/*
+    run .sh file
+*/
+ 
+ 
