@@ -29,6 +29,7 @@ The third category of property attributes is one that affects the way that your 
 
 strong(default):  Strong just means you have a reference to an object and you will keep that object alive.
                   As long as you hold that reference to the object in that property, that object will not be deallocated and released back into memory.
+                 
 weak: Weak gives you a reference so you can still "talk" to that object, but you are not keeping it alive.
       If everyone else's strong reference go away, then that object is released, weak will just automatically nil itself out.
       It is safe to send messages to nil and nothing happens.
